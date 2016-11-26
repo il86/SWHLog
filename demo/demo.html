@@ -1,0 +1,23 @@
+<html>
+<head>
+<style>
+body{font-family: monospace, courier, sans-serif;}
+.loglevel {padding: 2px;}
+.loglevel0 {background-color: #FFAAAA;}
+.loglevel1 {background-color: #FFCCCC;}
+.loglevel2 {background-color: #CCFFCC;}
+.loglevel3 {background-color: #CCCCFF;}
+.loglevel4 {}
+.loglevel5 {color: rgba(0,0,0,.5)}
+.loglevel6 {color: rgba(0,0,0,.4)}
+.loglevel7 {color: rgba(0,0,0,.3)}
+.loglevel8 {color: rgba(0,0,0,.3)}
+.loglevel9 {color: rgba(0,0,0,.3)}
+
+.timer {font-size: x-small; padding-right: 20px; color: rgba(0,0,0,.5)}
+</style>
+</head>
+<body>
+<h1>SWHLog Advanced Demo</h1><div class="loglevel loglevel0"><span class="timer">40.5122</span> Level 0: system critical error causing immediate exit</div><div class="loglevel loglevel1"><span class="timer">40.5188</span> &nbsp;&nbsp;&nbsp;Level 1: important message the user NEEDS to know</div><div class="loglevel loglevel2"><span class="timer">40.5252</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Level 2: primary code blocks</div><div class="loglevel loglevel3"><span class="timer">40.5320</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Level 3: common actions</div><div class="loglevel loglevel4"><span class="timer">40.5403</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Level 4: useful debug unformation</div><div class="loglevel loglevel5"><span class="timer">40.5454</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Level 5: super extra information</div><hr><h1>Text Log</h1><code>0 demo.py:16:logTest2() [40.5122] Level 0: system critical error causing immediate exit<br>1 demo.py:17:logTest2() [40.5188] Level 1: important message the user NEEDS to know<br>2 demo.py:18:logTest2() [40.5252] Level 2: primary code blocks<br>3 demo.py:19:logTest2() [40.5320] Level 3: common actions<br>4 demo.py:20:logTest2() [40.5403] Level 4: useful debug unformation<br>5 demo.py:21:logTest2() [40.5454] Level 5: super extra information</code>
+</body>
+</html>

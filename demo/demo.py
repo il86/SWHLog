@@ -43,5 +43,6 @@ if __name__=="__main__":
     swhlog.clear() # start over by erasing the log
     
     logTest2() # log some stuff
-    swhlog.getLogHTML(title="SWHLog Advanced Demo") # show the result
+    swhlog.getLogHTML(saveAs="./demo.html",
+                      title="SWHLog Advanced Demo") # show the result
     swhlog.clear() # start over by erasing the log

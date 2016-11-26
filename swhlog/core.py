@@ -72,7 +72,10 @@ def getLogHTML(saveAs=False,launch=True,title="SWHLog Report"):
         html+='<div class="loglevel loglevel%d">%s</div>'%(level,message2)
     html+="<hr><h1>Text Log</h1>"
     html+='<code>%s</code>'%(swhlog.htmltemplate.htmlsafe(getLogText()))
-    fname=os.path.abspath(tempfile.gettempdir()+"/swhlog_%f.html"%time.time())
+    if saveAs:
+        fname=os.path.abspath(saveAs)
+    else:
+        fname=os.path.abspath(tempfile.gettempdir()+"/swhlog_%f.html"%time.time())
     with open(fname,'w') as f:
         f.write(swhlog.htmltemplate.html.replace("CONTENT",html))
     print("SAVED:",fname)
