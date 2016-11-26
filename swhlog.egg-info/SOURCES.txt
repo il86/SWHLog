@@ -1,8 +1,0 @@
-README.txt
-setup.py
-swhlog/__init__.py
-swhlog/version.py
-swhlog.egg-info/PKG-INFO
-swhlog.egg-info/SOURCES.txt
-swhlog.egg-info/dependency_links.txt
-swhlog.egg-info/top_level.txt
