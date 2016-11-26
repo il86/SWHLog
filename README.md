@@ -3,7 +3,7 @@ SWHLog simplifies logging/debugging. There are great tools like logging which do
 
 **Installation:** `pip install swhlog`
 
-### Basic Usage
+## Basic Usage
 ```python
 import swhlog
 from swhlog import log,attention
@@ -45,3 +45,10 @@ _note that when debugMode=True, the log displays the file name, line number, and
 ![](demo/demo2.png)
 
 _html files are formatted nicely so log entries are color-coded and indented by log level_
+
+---
+
+## Advanced Demonstration
+For more features, glance at [demo.py](demo/demo.py). The output of that script looks like this:
+
+![](demo/demo.png)
