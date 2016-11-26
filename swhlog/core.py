@@ -31,6 +31,10 @@ def log(message="",level=3):
     curframe = inspect.currentframe()
     calframe = inspect.getouterframes(curframe, 2)
     fileName,lineNumber,funcName=calframe[1][1:4]
+    if str(funcName) == '<module>':
+        funcName='__main__'
+    else:
+        funcName+="()"
     fileName=os.path.basename(fileName)
     if len(loglines):
         timeDiff=timeAbs-loglines[-1][3]
@@ -39,7 +43,7 @@ def log(message="",level=3):
     logline=[fileName,lineNumber,funcName,timeAbs,timeDiff,level,message]
     loglines.append(logline)    
     if swhlog.debugMode:
-        line="%s:%d:%s() "%(fileName,lineNumber,funcName)+line
+        line="%s:%d:%s "%(fileName,lineNumber,funcName)+line
     if level<=swhlog.logLevel:
         print(line)
     return
@@ -49,7 +53,7 @@ def getLogText():
     text=[]
     for line in loglines:
         fileName,lineNumber,funcName,timeAbs,timeDiff,level,message=line
-        t="%d %s:%d:%s() "%(level,fileName,lineNumber,funcName)
+        t="%d %s:%d:%s "%(level,fileName,lineNumber,funcName)
         t+="[%s] %s"%("%.04f"%timeAbs,message)
         text.append(t)
     return "\n".join(text)
