@@ -3,7 +3,7 @@ from setuptools import setup
 exec(open("./swhlog/version.py").read()) # pull version from this file
 
 setup(
-    name='swhlog',
+    name='SWHLog',
     version=__version__,
     author='Scott W Harden',
     author_email='SWHarden@gmail.com',
