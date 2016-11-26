@@ -1,7 +1,9 @@
 # SWHLog
-SWHLog simplifies logging/debugging. There are great tools like logging which do many fancy things, but the goal of swhlog is to be as simple as possible.
+SWHLog simplifies logging/debugging. There are great tools like logging which do many fancy things, but the goal of swhlog is to be as simple as possible. It allows assignment of "loglevel" (used to control verbosity), and low-level items are displayed and higher-level items are hidden. The user can adjust what information is displayed by changing things like `swhlog.logLevel=5` and `swhlog.debugMode=True`. Debug mode is nice because it shows the file, line number, and function from which every `log()` was initiated. Regardless of what those settings are, all logged messages can be displayed in a nicely formatted webpage using `swhlog.getLogHTML()` at any time. 
 
-**Installation:** `pip install swhlog`
+## Installation
+
+* `pip install swhlog`
 
 ## Basic Usage
 ```python
