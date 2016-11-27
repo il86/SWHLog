@@ -10,7 +10,7 @@ swhlog.debugMode=False
 
 # [fileName,lineNumber,funcName,timeAbs,timeDiff,level,message]
 # [0       ,1         ,2       ,3      ,4       ,5    ,6      ]
-loglines=[] 
+loglines=[]
 
 def clear():
     """erases the entire log."""
@@ -41,9 +41,10 @@ def log(message="",level=3):
     else:
         timeDiff=timeAbs
     logline=[fileName,lineNumber,funcName,timeAbs,timeDiff,level,message]
-    loglines.append(logline)    
+    loglines.append(logline)
     if swhlog.debugMode:
         line="%s:%d:%s "%(fileName,lineNumber,funcName)+line
+    line="{:05d} {}".format(len(loglines),line)
     if level<=swhlog.logLevel:
         print(line)
     return
@@ -57,14 +58,14 @@ def getLogText():
         t+="[%s] %s"%("%.04f"%timeAbs,message)
         text.append(t)
     return "\n".join(text)
-    
+
 def getLogHTML(saveAs=False,launch=True,title="SWHLog Report"):
     """
     generate pretty HTML page from saved log.
-    
+
     If saveAs is given a path name, it wil save the HTML document as that file.
     Otherwise, it will create a file in the temporary folder.
-    
+
     If launch is True, it will open the file in a browser after saving it.
     """
     html="<h1>%s</h1>"%title
@@ -88,5 +89,8 @@ def getLogHTML(saveAs=False,launch=True,title="SWHLog Report"):
 
 if __name__=="__main__":
     print("DONT RUN THIS DIRECTLY.")
+    log('testing 123')
+    log('testing 123')
+    log('testing 123')
     #logTest()
     #getLogHTML()
