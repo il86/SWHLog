@@ -3,6 +3,9 @@ import inspect
 import os
 import tempfile
 import webbrowser
+
+import sys
+sys.path.insert(0,'../')
 import swhlog.htmltemplate
 
 swhlog.logLevel=5 # hide messages higher than this number
@@ -23,8 +26,19 @@ def attention(msg=""):
     print("\n"+"#"*50+"\n"+"#"*3,msg.upper()+"\n"+"#"*50+"\n")
     return
 
-def log(message="",level=3):
+def log(message="",level=3,noFrills=False,start="",end="\n"):
     """log (show/save) a message."""
+    message=message.strip()
+    if "\n" in message:
+        message=message.split("\n")
+    else:
+        message=[message]
+    for line in message:
+        line=start+line.strip()+end
+        logLine(line,level,noFrills)
+
+
+def logLine(message="",level=3,noFrills=False):
     message=message.strip()
     timeAbs=time.clock()
     line="[%s] %s %s"%("%.04f"%timeAbs,"-"*level,message)
@@ -46,7 +60,13 @@ def log(message="",level=3):
         line="%s:%d:%s "%(fileName,lineNumber,funcName)+line
     line="{:05d} {}".format(len(loglines),line)
     if level<=swhlog.logLevel:
-        print(line)
+        if message=="":
+            print() # empty message is a linebreak
+            return
+        if noFrills:
+            print(message)
+        else:
+            print(line)
     return
 
 def getLogText():
@@ -72,6 +92,9 @@ def getLogHTML(saveAs=False,launch=True,title="SWHLog Report"):
     for line in loglines:
         fileName,lineNumber,funcName,timeAbs,timeDiff,level,message=line
         message=swhlog.htmltemplate.htmlsafe(message)
+        if message=="":
+            html+="<hr>"
+            continue
         message2="&nbsp;"*level*3+message
         message2='<span class="timer">%s</span> '%("%.04f"%timeAbs)+message2
         html+='<div class="loglevel loglevel%d">%s</div>'%(level,message2)
@@ -89,8 +112,23 @@ def getLogHTML(saveAs=False,launch=True,title="SWHLog Report"):
 
 if __name__=="__main__":
     print("DONT RUN THIS DIRECTLY.")
-    log('testing 123')
-    log('testing 123')
-    log('testing 123')
+    log()
+    log('testing 123',0)
+    log('testing 123',1)
+    log('testing 123',2)
+    log('REGULR3',3)
+    log('testing 123',4)
+    log('testing 123',5)
+    log()
+    log("testing \n a \n multiline\nlogfile")
+
+    log()
+    log("testing \n a \n multiline\nlogfile",noFrills=True)
+
+    log()
+    log("testing \n a \n multiline\nlogfile",noFrills=True,start=">> [",end="]")
+
+
+
     #logTest()
-    #getLogHTML()
+    getLogHTML()

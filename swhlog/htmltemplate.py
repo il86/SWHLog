@@ -3,11 +3,11 @@ html="""<html>
 <style>
 body{font-family: monospace, courier, sans-serif;}
 .loglevel {padding: 2px;}
-.loglevel0 {background-color: #FFAAAA;}
-.loglevel1 {background-color: #FFCCCC;}
+.loglevel0 {background-color: #FFCCCC;}
+.loglevel1 {background-color: #CCCCFF;}
 .loglevel2 {background-color: #CCFFCC;}
-.loglevel3 {background-color: #CCCCFF;}
-.loglevel4 {}
+.loglevel3 {}
+.loglevel4 {color: rgba(0,0,0,.7)}
 .loglevel5 {color: rgba(0,0,0,.5)}
 .loglevel6 {color: rgba(0,0,0,.4)}
 .loglevel7 {color: rgba(0,0,0,.3)}
