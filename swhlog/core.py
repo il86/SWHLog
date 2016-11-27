@@ -6,6 +6,7 @@ import webbrowser
 
 import sys
 sys.path.insert(0,'../')
+import swhlog
 import swhlog.htmltemplate
 
 swhlog.logLevel=5 # hide messages higher than this number
@@ -41,7 +42,7 @@ def log(message="",level=3,noFrills=False,start="",end="\n"):
 def logLine(message="",level=3,noFrills=False):
     message=message.strip()
     timeAbs=time.clock()
-    line="[%s] %s %s"%("%.04f"%timeAbs,"-"*level,message)
+    line="[%s] %s %s"%("%.04f"%timeAbs,swhlog.indentChar*level,message)
     curframe = inspect.currentframe()
     calframe = inspect.getouterframes(curframe, 2)
     fileName,lineNumber,funcName=calframe[1][1:4]
@@ -127,8 +128,10 @@ if __name__=="__main__":
 
     log()
     log("testing \n a \n multiline\nlogfile",noFrills=True,start=">> [",end="]")
+    log()
+    log("testing \n a \n multiline\nlogfile",start=">> [",end="]")
 
 
 
     #logTest()
-    getLogHTML()
+    #getLogHTML()
