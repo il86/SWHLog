@@ -36,11 +36,10 @@ def log(message="",level=3,noFrills=False,start="",end="\n"):
         message=[message]
     for line in message:
         line=start+line.strip()+end
+        line=line.replace("\n","")
         logLine(line,level,noFrills)
 
-
 def logLine(message="",level=3,noFrills=False):
-    message=message.strip()
     timeAbs=time.clock()
     line="[%s] %s %s"%("%.04f"%timeAbs,swhlog.indentChar*level,message)
     curframe = inspect.currentframe()
@@ -127,7 +126,7 @@ if __name__=="__main__":
     log("testing \n a \n multiline\nlogfile",noFrills=True)
 
     log()
-    log("testing \n a \n multiline\nlogfile",noFrills=True,start=">> [",end="]")
+    log("testing \n a \n multiline\nlogfile",noFrills=True,start="    [",end="]")
     log()
     log("testing \n a \n multiline\nlogfile",start=">> [",end="]")
 
